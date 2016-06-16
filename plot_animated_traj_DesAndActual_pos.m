@@ -21,14 +21,14 @@ c = ['b','m','k','r','g','b','m','k','r','g','b','m','k','r','g','b','m',...
     'g','b','m','k','r','g','b','m','k','g','b','m','k','r','g','b','m','k',...
     'g','b','m','k','r','g','b','m','k','r','g','b','m','k','r','g'];
 
-v = VideoWriter('C:\Users\Jens\Documents\Uni Stuttgart\BA\BA ohne Video\Matlab\Consensus_3D\1 formation_control\Videos\vehicle_trajectories9.mp4','MPEG-4');
+v = VideoWriter('C:\Users\Jens\Documents\Uni Stuttgart\BA\BA ohne Video\Matlab\Consensus_3D\1 formation_control\Videos\vehicle_trajectories.mp4','MPEG-4');
 v.FrameRate = 24;
 v.Quality = 50;
 open(v);
 opengl('software')
 
 % loop over each data entry of the simout results
-for j=1:30:(timesteps/5)
+for j=1:30:(timesteps)
     % plot of the reference frame trajectory
     plot3(xi_ref.data(:,1),xi_ref.data(:,2),xi_ref.data(:,3));
     axis([-2 2 -1 3 -1 3]);
@@ -62,6 +62,4 @@ for j=1:30:(timesteps/5)
     %     legend('ref','v1','v1_des','v2','v2_des','v3','v3_des','v4','v4_des');
     hold off;
 end
-set(gcf,'color','w');
-export_fig test.pdf
 close(v);
